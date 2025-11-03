@@ -153,7 +153,7 @@ export default function CartModal({
                   <option value="">Select Table</option>
                   {Array.from({ length: 9 }, (_, i) => (
                     <option key={i + 1} value={i + 1}>
-                      Table {i + 1}
+                      Table No. {i + 1}
                     </option>
                   ))}
                 </select>
