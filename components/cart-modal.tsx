@@ -151,7 +151,7 @@ export default function CartModal({
                   className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-700"
                 >
                   <option value="">Select Table</option>
-                  {Array.from({ length: 10 }, (_, i) => (
+                  {Array.from({ length: 9 }, (_, i) => (
                     <option key={i + 1} value={i + 1}>
                       Table {i + 1}
                     </option>
