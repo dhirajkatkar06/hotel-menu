@@ -159,11 +159,11 @@ export const menuItems = [
   },
   {
     id: "19",
-    name: "Spaghetti Aglio e Olio",
+    name: "Kheema Pav",
     description: "Spaghetti tossed with olive oil, garlic, chili flakes, and parsley.",
     price: 380,
     category: "Pasta (Veg)",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/kheema-pav.png",
   },
   {
     id: "20",
