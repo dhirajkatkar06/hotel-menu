@@ -6,12 +6,22 @@ import MenuCard from "@/components/menu-card"
 import CategoryTabs from "@/components/category-tabs"
 import CartModal from "@/components/cart-modal"
 import { menuItems, categories } from "@/lib/menu-data"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
   const [cartItems, setCartItems] = useState<Array<{ id: string; name: string; price: number; quantity: number }>>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
+
+  const bannerImages = [
+  "https://picsum.photos/1200/400?random=1",
+  "https://picsum.photos/1200/400?random=2",
+  "https://picsum.photos/1200/400?random=3",
+  ];
 
   const filteredItems = useMemo(() => {
     return menuItems.filter((item) => {
@@ -35,6 +45,16 @@ export default function Home() {
 
   const cartTotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+    const settings = {
+    autoplay: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: true,
+    autoplaySpeed: 3000,
+  };
 
   return (
     <div className="min-h-screen bg-amber-50">
@@ -56,7 +76,7 @@ export default function Home() {
         />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-4xl font-bold text-white">Menu</h1>
+            <h1 className="text-4xl font-bold text-white">Siya's Cafe</h1>
             <button
               onClick={() => setIsCartOpen(true)}
               className="relative text-white px-6 py-2 rounded-full font-semibold flex items-center gap-2 transition-all whitespace-nowrap hover:opacity-90"
@@ -88,7 +108,7 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-8">
-        <div className="relative rounded-2xl overflow-hidden mb-8">
+        {/* <div className="relative rounded-2xl overflow-hidden mb-8">
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -98,6 +118,23 @@ export default function Home() {
             }}
           />
           <div className="relative bg-gradient-to-r from-slate-900/90 to-slate-800/90 px-8 py-12 text-center rounded-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Our Menu</h2>
+            <p className="text-gray-200 text-lg">Discover our delicious selection of dishes</p>
+          </div>
+        </div> */}
+        <div className="relative rounded-2xl overflow-hidden mb-8">
+          <Slider {...settings}>
+            {bannerImages.map((img, idx) => (
+              <div key={idx}>
+                <div
+                  className="h-52 md:h-72 lg:h-80 w-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(${img})` }}
+                />
+              </div>
+            ))}
+          </Slider>
+
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 to-slate-800/70 flex flex-col items-center justify-center text-center px-8 py-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Our Menu</h2>
             <p className="text-gray-200 text-lg">Discover our delicious selection of dishes</p>
           </div>
