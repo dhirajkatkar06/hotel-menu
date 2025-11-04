@@ -134,10 +134,10 @@ export default function Home() {
             ))}
           </Slider>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 to-slate-800/70 flex flex-col items-center justify-center text-center px-8 py-12">
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 to-slate-800/70 flex flex-col items-center justify-center text-center px-8 py-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Our Menu</h2>
             <p className="text-gray-200 text-lg">Discover our delicious selection of dishes</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Category Tabs */}
@@ -168,6 +168,55 @@ export default function Home() {
           onClose={() => setIsCartOpen(false)}
         />
       )}
+
+      {/* ✅ Add Footer BELOW this line and ABOVE the last </div> */}
+      <footer className="bg-white pt-10 pb-4 mt-12 border-t">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+
+          <div className="flex justify-center gap-8 mb-6 text-3xl">
+            <a 
+              href="https://www.instagram.com/yourpage" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition"
+            >
+              <img src="/instagram.png" alt="Instagram" className="w-8 h-8" />
+            </a>
+
+            <a 
+              href="https://en.wikipedia.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition"
+            >
+              <img src="/website.png" alt="Website" className="w-8 h-8" />
+            </a>
+
+            <a href="tel:+91XXXXXXXXXX" className="hover:opacity-70 transition text-4xl">
+              📞
+            </a>
+
+            <a 
+              href="https://g.page/r/your-google-map-link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-70 transition"
+            >
+              <img src="/google.png" alt="Google" className="w-8 h-8" />
+            </a>
+          </div>
+
+          <p className="text-lg font-semibold text-gray-800 mb-2">
+            We also accept Party Orders 🎉
+          </p>
+
+          <p className="text-sm text-gray-500 flex items-center justify-center gap-1">
+            Made with <span className="text-red-500 text-lg">❤️</span> by <span className="font-semibold">Siya’s Cafe</span>
+          </p>
+        </div>
+      </footer>
+
+ 
     </div>
   )
 }
